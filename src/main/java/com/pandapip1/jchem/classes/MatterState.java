@@ -1,5 +1,7 @@
-package com.pandapip1.jchem;
+package com.pandapip1.jchem.classes;
 
+
+import com.pandapip1.jchem.JChem;
 
 import java.util.*;
 
@@ -8,7 +10,7 @@ public record MatterState(UUID uuid, String identifier) {
 
     public MatterState {
         if (allStates.containsKey(uuid)) {
-            JChem.logger.warning("State with UUID " + uuid + " already exists.\n" + identifier);
+            JChem.logger.warning("State with UUID " + uuid + " already exists.\n" + this);
         } else {
             allStates.put(uuid, this);
         }
@@ -18,7 +20,7 @@ public record MatterState(UUID uuid, String identifier) {
         return allStates.get(uuid);
     }
 
-    public UUID getUuid() {
+    public UUID getUUID() {
         return uuid;
     }
 
