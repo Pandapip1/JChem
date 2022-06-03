@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "states": {
+    "3d39806e-e732-42c1-b404-782d7427749f": {
+      "identifier": "s"
+    },
+    "5b4bc52d-e2fd-41bb-8a7f-3fca7b6941b7": {
+      "identifier": "l"
+    },
+    "c729c99b-3aa1-44ea-9104-0b4682aeb307": {
+      "identifier": "g"
+    },
+    "199d7289-03f5-45c0-8060-8d45821c4eee": {
+      "identifier": "aq"
+    }
+  },
+  "species": {
+    "": {
+
+    }
+  },
+  "steps": {
+
+  }
+}
