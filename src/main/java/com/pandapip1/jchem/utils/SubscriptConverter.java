@@ -27,4 +27,19 @@ public class SubscriptConverter {
         s = s.replace(")", "₎");
         return s;
     }
+
+    // Convert a string's numbers to subscripts
+    public static String convertNums(String s) {
+        s = s.replace("0", "₀");
+        s = s.replace("1", "₁");
+        s = s.replace("2", "₂");
+        s = s.replace("3", "₃");
+        s = s.replace("4", "₄");
+        s = s.replace("5", "₅");
+        s = s.replace("6", "₆");
+        s = s.replace("7", "₇");
+        s = s.replace("8", "₈");
+        s = s.replace("9", "₉");
+        return s;
+    }
 }

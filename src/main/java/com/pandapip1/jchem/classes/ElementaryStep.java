@@ -5,7 +5,7 @@ import com.pandapip1.jchem.JChem;
 
 import java.util.*;
 
-public record ElementaryStep(UUID uuid, Map<UUID, Integer> rxn, double deltaH, double deltaS) {
+public record ElementaryStep(UUID uuid, Map<UUID, Number> rxn, Number deltaH, Number deltaS, Number preExponentialFactor, Number activationEnergy) {
     private static final Map<UUID, ElementaryStep> allSteps = new HashMap<>();
 
     public ElementaryStep {
@@ -32,7 +32,7 @@ public record ElementaryStep(UUID uuid, Map<UUID, Integer> rxn, double deltaH, d
         // Order so that the reactants are listed first
         int toSwap = 0;
         for (int i = 0; i < keys.size(); i++) {
-            if (rxn.get(keys.get(i)) > 0) {
+            if (rxn.get(keys.get(i)).intValue() > 0) {
                 UUID temp = keys.get(i);
                 keys.set(i, keys.get(toSwap));
                 keys.set(toSwap, temp);
@@ -40,9 +40,9 @@ public record ElementaryStep(UUID uuid, Map<UUID, Integer> rxn, double deltaH, d
             }
         }
 
-        // Actuall pretty-printing
+        // Actual pretty-printing
         for (int i = 0; i < toSwap; i++) {
-            if (Math.abs(rxn.get(keys.get(i))) != 1) {
+            if (Math.abs(rxn.get(keys.get(i)).intValue()) != 1) {
                 sb.append(rxn.get(keys.get(i)));
                 sb.append(" ");
             }
@@ -53,7 +53,7 @@ public record ElementaryStep(UUID uuid, Map<UUID, Integer> rxn, double deltaH, d
         }
         sb.append(" ⟶ ");
         for (int i = toSwap; i < keys.size(); i++) {
-            if (Math.abs(rxn.get(keys.get(i))) != 1) {
+            if (Math.abs(rxn.get(keys.get(i)).intValue()) != 1) {
                 sb.append(rxn.get(keys.get(i)));
                 sb.append(" ");
             }
